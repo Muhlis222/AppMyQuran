@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, TouchableOpacity, ScrollView, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, ScrollView, StyleSheet, ImageBackground } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 const Beranda = () => {
@@ -30,7 +30,13 @@ const Beranda = () => {
                         style={styles.ayatContainer}
                     >
                         <View style={styles.ayatContent}>
-                            <Text style={styles.nomorText}>{data.nomor}</Text>
+                            <View style={styles.nomorContainer}>
+                                <ImageBackground style={styles.nomorBackground} source={require('../src/img/bingkai.png')} // Replace with the actual path to your image style={styles.nomorBackground}
+                                    resizeMode="cover"
+                                    borderRadius={20}>
+                                    <Text style={styles.nomorText}>{data.nomor}</Text>
+                                </ImageBackground>
+                            </View>
                             <View style={styles.textContainer}>
                                 <Text style={styles.ayatText}>{data.nama}</Text>
                                 <Text style={styles.namaLatinText}>{data.nama_latin}</Text>
@@ -71,9 +77,22 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'baseline',
     },
+    nomorContainer: {
+        overflow: 'hidden', // To ensure the border-radius works with the ImageBackground
+        borderRadius: 8,
+        marginVertical: 4,
+        padding: 10,
+    },
+    nomorText: {
+        fontSize: 14,
+        color: '#ecf0f1',
+        fontWeight: 'bold',
+        marginBottom: 5,
+    },
     textContainer: {
         flex: 1,
         marginLeft: 15,
+        justifyContent: 'flex-start', // Align text at the top
     },
     ayatText: {
         fontSize: 22,
@@ -83,15 +102,7 @@ const styles = StyleSheet.create({
     namaLatinText: {
         fontSize: 18,
         color: '#ecf0f1',
-    },
-    nomorText: {
-        fontSize: 14,
-        color: '#ecf0f1',
-        fontWeight: 'bold',
-        backgroundColor: '#55688D',
-        paddingVertical: 4,
-        paddingHorizontal: 8,
-        borderRadius: 8,
+        marginTop: -30,
     },
     tempatTurun: {
         fontSize: 16,
@@ -103,6 +114,14 @@ const styles = StyleSheet.create({
         color: '#95a5a6',
         marginTop: 4,
     },
+    nomorBackground: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: 40,
+        height: 40,
+    },
+
 });
 
 export default Beranda;

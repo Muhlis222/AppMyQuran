@@ -23,8 +23,8 @@ const Detail = ({ route }) => {
         <ScrollView contentContainerStyle={styles.container}>
             {ayatDetails && (
                 <>
-                    <Text style={styles.text}>{ayatDetails.nama}</Text>
-                    <Text style={styles.text}>{ayatDetails.tempat_turun}, {ayatDetails.jumlah_ayat} ayat</Text>
+                    <Text style={styles.title}>{ayatDetails.nama}</Text>
+                    <Text style={styles.subtitle}>{ayatDetails.tempat_turun}, {ayatDetails.jumlah_ayat} ayat</Text>
                     <FlatList
                         data={ayatDetails.ayat}
                         keyExtractor={(item) => item.id.toString()}
@@ -49,20 +49,26 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         padding: 16,
     },
-    text: {
-        fontSize: 18,
-        marginBottom: 6,
+    title: {
+        fontSize: 20,
+        marginBottom: 8,
         color: '#ecf0f1',
         textAlign: 'left',
     },
+    subtitle: {
+        fontSize: 16,
+        marginBottom: 12,
+        color: '#bdc3c7',
+        textAlign: 'left',
+    },
     ayatContainer: {
-        marginBottom: 26,
+        marginBottom: 24,
     },
     ayatTextArabic: {
         fontSize: 24,
         textAlign: 'right',
         marginBottom: 10,
-        marginTop: 26,
+        marginTop: 20,
         color: '#ecf0f1',
     },
     ayatTextTranslation: {
