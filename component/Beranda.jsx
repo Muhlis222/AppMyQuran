@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
         alignItems: 'baseline',
     },
     nomorContainer: {
-        overflow: 'hidden', // To ensure the border-radius works with the ImageBackground
+        overflow: 'hidden',
         borderRadius: 8,
         marginVertical: 4,
         padding: 10,
@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
     textContainer: {
         flex: 1,
         marginLeft: 15,
-        justifyContent: 'flex-start', // Align text at the top
+        justifyContent: 'flex-start',
     },
     ayatText: {
         fontSize: 22,
