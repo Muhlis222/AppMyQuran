@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react';
 import { StyleSheet, View, Image, Text } from 'react-native';
+import { red } from 'react-native-reanimated/lib/typescript/reanimated2/Colors';
 
 const SplashScreen = ({ navigation }) => {
     useEffect(() => {
 
         const timeout = setTimeout(() => {
 
-            navigation.replace('Beranda');
+            navigation.replace('Home');
         }, 2000);
 
         return () => clearTimeout(timeout);
